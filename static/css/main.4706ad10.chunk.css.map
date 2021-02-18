@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/components/Header/Header.css"],"names":[],"mappings":"AAAA,2BACI,cACJ","file":"main.4706ad10.chunk.css","sourcesContent":[".navbar-dark .navbar-brand {\n    font-size: 2rem;\n}"]}
