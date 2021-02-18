@@ -14,46 +14,46 @@ class Employees extends Component {
       .then(data => {
         // console.log(data);
         const employees = data.results.map(result => {
-
           const employee = {
+            id: result.login.uuid,
             image: result.picture.thumbnail,
             name: result.name.first + " " + result.name.last,
             phone: result.phone,
             email: result.email,
-            dob: result.dob.date,
-          }
+            dob: result.dob.date
+          };
           return employee;
         });
         // console.log(employees);
-        this.setState({employees});
+        this.setState({ employees });
       })
       .catch(error => console.log(error));
   }
 
-  handleInputChange = e => {
-    const { name, value } = e.target;
+  // handleInputChange = e => {
+  //   const { name, value } = e.target;
 
-    this.setState({
-      [name]: value
-    });
-  };
+  //   this.setState({
+  //     [name]: value
+  //   });
+  // };
 
-  handleSubmit = e => {
-    e.preventDefault();
+  // handleSubmit = e => {
+  //   e.preventDefault();
 
-    const searchEmployee = {
-      id: this.state.employees.length + 1,
-      name: this.state.searchEmployee
-    };
+  //   const searchEmployee = {
+  //     id: this.state.employees.length + 1,
+  //     name: this.state.searchEmployee
+  //   };
 
-    const employeesArray = [...this.state.employees];
-    employeesArray.push(searchEmployee);
+  //   const employeesArray = [...this.state.employees];
+  //   employeesArray.push(searchEmployee);
 
-    this.setState({
-      employees: employeesArray,
-      searchEmployee: ""
-    });
-  };
+  //   this.setState({
+  //     employees: employeesArray,
+  //     searchEmployee: ""
+  //   });
+  // };
 
   render() {
     return (
@@ -67,7 +67,7 @@ class Employees extends Component {
             <table className="table">
               <thead>
                 <tr>
-                  <th scope="col">#</th>
+                  {/* <th scope="col">#</th> */}
                   <th scope="col">Image</th>
                   <th scope="col">Name</th>
                   <th scope="col">Phone</th>
