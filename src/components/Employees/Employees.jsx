@@ -49,9 +49,23 @@ class Employees extends Component {
     // this.state.filteredEmployees.sort((a, b) => {
     // if a.name > b.name return  1
     // else if a.name === b.name return 0
-    //else return -1
+    // else return -1
     // });
-    console.log("sort clicked");
+    // console.log("sort clicked");
+
+    let sortedNames = this.state.filteredEmployees;
+
+    if (this.state.sortName === "" || this.state.sortName === "zToA") {
+      sortedNames.sort((a, b) => {
+        return a.name.first.localeCompare(b.name.first);
+      });
+      this.setState({ filteredEmployees: sortedNames, sortName: "aToZ" });
+    } else if (this.state.sortName === "aToZ") {
+      sortedNames.sort((a, b) => {
+        return b.name.first.localeCompare(a.name.first);
+      });
+      this.setState({ filteredEmployees: sortedNames, sortName: "zToA" });
+    }
   };
 
   render() {
