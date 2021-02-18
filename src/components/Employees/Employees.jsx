@@ -57,12 +57,12 @@ class Employees extends Component {
 
     if (this.state.sortName === "" || this.state.sortName === "zToA") {
       sortedNames.sort((a, b) => {
-        return a.name.first.localeCompare(b.name.first);
+        return a.name.localeCompare(b.name);
       });
       this.setState({ filteredEmployees: sortedNames, sortName: "aToZ" });
     } else if (this.state.sortName === "aToZ") {
       sortedNames.sort((a, b) => {
-        return b.name.first.localeCompare(a.name.first);
+        return b.namelocaleCompare(a.name);
       });
       this.setState({ filteredEmployees: sortedNames, sortName: "zToA" });
     }
