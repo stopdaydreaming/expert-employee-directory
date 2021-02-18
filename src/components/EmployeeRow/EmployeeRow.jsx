@@ -1,13 +1,13 @@
 import React from "react";
 
-const EmployeeRow = props => {
+const EmployeeRow = ({ image, name, phone, email, dob}) => {
   return (
     <tr>
-      <td><img src={props.image}  /></td>
-      <td>{props.name}</td>
-      <td>{props.phone}</td>
-      <td>{props.email}</td>
-      <td>{props.dob}</td>
+      <td><img src={image} alt="employee photo" /></td>
+      <td>{name}</td>
+      <td>{phone}</td>
+      <td>{email}</td>
+      <td>{dob.substring(0,10)}</td>
     </tr>
   );
 };
