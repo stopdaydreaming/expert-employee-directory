@@ -3,7 +3,7 @@ import React from "react";
 const EmployeeSearch = props => {
   return (
     <div className="row">
-      <div className="col-7">
+      <div className="col-lg-12">
         <form onSubmit={props.handleSubmit}>
           <div className="form-group">
           <label htmlFor="employee" className="form-label">

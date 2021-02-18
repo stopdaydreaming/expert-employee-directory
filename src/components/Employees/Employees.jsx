@@ -63,28 +63,6 @@ class Employees extends Component {
       <div className="container">
         {/* //search form */}
         <EmployeeSearch />
-        {/* <div className="row">
-          <div className="col-lg-12">
-            <form onSubmit={this.handleSubmit}>
-              <div className="mb-3">
-                <label htmlFor="employee" className="form-label">
-                  Search for Employee
-                </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="employee"
-                  value={this.state.searchEmployee}
-                  name="searchEmployee"
-                  onChange={this.handleInputChange}
-                />
-              </div>
-              <button type="submit" className="btn btn-primary">
-                Submit
-              </button>
-            </form>
-          </div>
-        </div> */}
 
         {/* //employee table */}
         <div className="row">
