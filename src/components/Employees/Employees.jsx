@@ -12,7 +12,6 @@ class Employees extends Component {
     fetch("https://randomuser.me/api/?results=50")
       .then(response => response.json())
       .then(data => {
-        // console.log(data);
         const employees = data.results.map(result => {
           const employee = {
             id: result.login.uuid,
@@ -24,19 +23,25 @@ class Employees extends Component {
           };
           return employee;
         });
-        // console.log(employees);
         this.setState({ employees });
       })
       .catch(error => console.log(error));
   }
 
-  // handleInputChange = e => {
-  //   const { name, value } = e.target;
-
-  //   this.setState({
-  //     [name]: value
-  //   });
-  // };
+  // search or filter employee
+  handleSearch = e => {
+    const { name, value } = e.target;
+    console.log(value);
+    const filteredEmployees = this.state.employees.filter(employee => {
+      if(employee.name.includes(value)){
+        return true;
+      }
+      else {
+        return false;
+      }
+    });
+    console.log(filteredEmployees);
+  };
 
   // handleSubmit = e => {
   //   e.preventDefault();
@@ -59,7 +64,7 @@ class Employees extends Component {
     return (
       <div className="container">
         {/* //search form */}
-        <EmployeeSearch />
+        <EmployeeSearch handleSearch={this.handleSearch} />
 
         {/* //employee table */}
         <div className="row">
