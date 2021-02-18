@@ -4,39 +4,30 @@ import EmployeeSearch from "../EmployeeSearch/EmployeeSearch";
 
 class Employees extends Component {
   state = {
-    employees: [
-      {
-        id: 1,
-        image: "url",
-        name: "Hank",
-        phone: "444-555-4444",
-        email: "hank@email.com",
-        dob: "02-09-1991"
-      },
-      {
-        id: 2,
-        image: "url",
-        name: "Nancy",
-        phone: "444-556-4444",
-        email: "nancy@email.com",
-        dob: "02-09-1989"
-      },
-      {
-        id: 3,
-        image: "url",
-        name: "Dale",
-        phone: "444-557-4444",
-        email: "dale@email.com",
-        dob: "02-09-1986"
-      }
-    ],
+    employees: [],
     searchEmployee: ""
   };
 
   componentDidMount() {
     fetch("https://randomuser.me/api/?results=50")
       .then(response => response.json())
-      .then(data => console.log(data));
+      .then(data => {
+        // console.log(data);
+        const employees = data.results.map(result => {
+
+          const employee = {
+            image: result.picture.thumbnail,
+            name: result.name.first + " " + result.name.last,
+            phone: result.phone,
+            email: result.email,
+            dob: result.dob.date,
+          }
+          return employee;
+        });
+        // console.log(employees);
+        this.setState({employees});
+      })
+      .catch(error => console.log(error));
   }
 
   handleInputChange = e => {
