@@ -6,11 +6,12 @@ class Employees extends Component {
   state = {
     employees: [],
     filteredEmployees: [],
-    searchEmployee: ""
+    searchEmployee: "",
+    sortBy: "",
   };
 
   componentDidMount() {
-    fetch("https://randomuser.me/api/?results=50")
+    fetch("https://randomuser.me/api/?results=50&nat=us")
       .then(response => response.json())
       .then(data => {
         const employees = data.results.map(result => {
@@ -44,22 +45,13 @@ class Employees extends Component {
     this.setState({ filteredEmployees });
   };
 
-  // handleSubmit = e => {
-  //   e.preventDefault();
-
-  //   const searchEmployee = {
-  //     id: this.state.employees.length + 1,
-  //     name: this.state.searchEmployee
-  //   };
-
-  //   const employeesArray = [...this.state.employees];
-  //   employeesArray.push(searchEmployee);
-
-  //   this.setState({
-  //     employees: employeesArray,
-  //     searchEmployee: ""
-  //   });
-  // };
+  handleSort = e => {
+    this.state.filteredEmployees.sort((a, b) => {
+    // if a.name > b.name return  1
+    // else if a.name === b.name return 0
+    //else return -1
+    });
+  };
 
   render() {
     return (
@@ -75,7 +67,7 @@ class Employees extends Component {
                 <tr>
                   {/* <th scope="col">#</th> */}
                   <th scope="col">Image</th>
-                  <th scope="col">Name</th>
+                  <th scope="col">Name &nbsp;<button className="btn btn-outline-secondary btn-sm">SORT</button></th>
                   <th scope="col">Phone</th>
                   <th scope="col">Email</th>
                   <th scope="col">DOB</th>
