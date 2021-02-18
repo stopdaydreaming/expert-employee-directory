@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import EmployeeRow from "../EmployeeRow/EmployeeRow";
+import EmployeeSearch from "../EmployeeSearch/EmployeeSearch";
 
 class Employees extends Component {
   state = {
@@ -61,6 +62,7 @@ class Employees extends Component {
     return (
       <div className="container">
         {/* //search form */}
+        <EmployeeSearch />
         {/* <div className="row">
           <div className="col-lg-12">
             <form onSubmit={this.handleSubmit}>
@@ -102,7 +104,6 @@ class Employees extends Component {
             </table>
           </div>
         </div>
-
       </div>
     );
   }
