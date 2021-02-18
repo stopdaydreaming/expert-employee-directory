@@ -45,12 +45,13 @@ class Employees extends Component {
     this.setState({ filteredEmployees });
   };
 
-  handleSort = e => {
-    this.state.filteredEmployees.sort((a, b) => {
+  handleSort = () => {
+    // this.state.filteredEmployees.sort((a, b) => {
     // if a.name > b.name return  1
     // else if a.name === b.name return 0
     //else return -1
-    });
+    // });
+    console.log("sort clicked");
   };
 
   render() {
@@ -67,7 +68,14 @@ class Employees extends Component {
                 <tr>
                   {/* <th scope="col">#</th> */}
                   <th scope="col">Image</th>
-                  <th scope="col">Name &nbsp;<button className="btn btn-outline-secondary btn-sm">SORT</button></th>
+                  <th scope="col">Name &nbsp;
+                    <button 
+                      className="btn btn-outline-secondary btn-sm"
+                      onClick={this.handleSort}
+                    >
+                      SORT
+                    </button>
+                  </th>
                   <th scope="col">Phone</th>
                   <th scope="col">Email</th>
                   <th scope="col">DOB</th>

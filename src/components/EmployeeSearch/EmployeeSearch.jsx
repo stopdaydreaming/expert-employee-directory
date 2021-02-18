@@ -9,7 +9,7 @@ const EmployeeSearch = props => {
             <div className="col-md-8">
               <input
                 type="text"
-                className="form-control"
+                className="form-control mb-3"
                 id="employee"
                 name="searchEmployee"
                 placeholder="Search for Employee"
