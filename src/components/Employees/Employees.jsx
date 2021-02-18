@@ -5,6 +5,7 @@ import EmployeeSearch from "../EmployeeSearch/EmployeeSearch";
 class Employees extends Component {
   state = {
     employees: [],
+    filteredEmployees: [],
     searchEmployee: ""
   };
 
@@ -23,7 +24,7 @@ class Employees extends Component {
           };
           return employee;
         });
-        this.setState({ employees });
+        this.setState({ employees, filteredEmployees: employees });
       })
       .catch(error => console.log(error));
   }
@@ -31,16 +32,16 @@ class Employees extends Component {
   // search or filter employee
   handleSearch = e => {
     const { name, value } = e.target;
-    console.log(value);
+    // console.log(value);
     const filteredEmployees = this.state.employees.filter(employee => {
-      if(employee.name.includes(value)){
+      if(employee.name.toLowerCase().includes(value.toLowerCase())){
         return true;
       }
       else {
         return false;
       }
     });
-    console.log(filteredEmployees);
+    this.setState({ filteredEmployees });
   };
 
   // handleSubmit = e => {
@@ -81,7 +82,7 @@ class Employees extends Component {
                 </tr>
               </thead>
               <tbody>
-                {this.state.employees.map(employee => (
+                {this.state.filteredEmployees.map(employee => (
                   <EmployeeRow {...employee} key={employee.id} />
                 ))}
               </tbody>
