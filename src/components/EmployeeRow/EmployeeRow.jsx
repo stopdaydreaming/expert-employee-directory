@@ -6,7 +6,7 @@ const EmployeeRow = ({ image, name, phone, email, dob}) => {
       <td><img src={image} alt="employee photo" /></td>
       <td>{name}</td>
       <td>{phone}</td>
-      <td>{email}</td>
+      <td><a href="mailto:{email}">{email}</a></td>
       <td>{dob.substring(0,10)}</td>
     </tr>
   );
