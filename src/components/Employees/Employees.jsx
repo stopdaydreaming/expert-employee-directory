@@ -33,6 +33,12 @@ class Employees extends Component {
     searchEmployee: ""
   };
 
+  componentDidMount() {
+    fetch("https://randomuser.me/api/?results=50")
+      .then(response => response.json())
+      .then(data => console.log(data));
+  }
+
   handleInputChange = e => {
     const { name, value } = e.target;
 

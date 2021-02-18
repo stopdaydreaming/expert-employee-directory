@@ -18,7 +18,7 @@ const EmployeeSearch = props => {
               />
             </div>
             <div className="col-md-4">
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" className="btn btn-success">
                 Submit
               </button>
             </div>
