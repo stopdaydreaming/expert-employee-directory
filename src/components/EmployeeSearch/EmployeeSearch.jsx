@@ -3,17 +3,15 @@ import React from "react";
 const EmployeeSearch = props => {
   return (
     <div className="row">
-      <div className="col-lg-12">
+      <div className="col-lg-12 mt-5 mb-5">
         <form onSubmit={props.handleSubmit}>
           <div className="form-group">
-          <label htmlFor="employee" className="form-label">
-                  Search for Employee
-                </label>
             <input
               type="text"
               className="form-control"
               id="employee"
               name="newEmployee"
+              placeholder="Search for Employee"
               value={props.newEmployee}
               onChange={props.handleInputChange}
             />
